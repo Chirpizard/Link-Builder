@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <!-- Makes scalable for smaller screens -->
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Replace these with site's fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Bitter:400,700|Bree+Serif' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- jQuery Library -->
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+
+<div id="link-form">
+  <h1>Campaign Link Builder</h1>
+  <p>
+    Lorem ipsum dolor sit amet, qui ad natum docendi consequat, sit denique fabellas in, mei in impedit feugait percipit. Est sumo consequat cu.
+  </p>
+
+  <div id="error-message">
+    <p>Please recheck your submission for errors.</p>
+  </div>
+
+  <div class="initialurl-section">
+    <div class="link-build-section">
+      <label for="url">
+        <h4>Initial URL</h4>
+        <span class="required-ast">*</span>
+      </label>
+      <p>Paste or type the URL that you wish to link to, please include http:// prefix</p>
+      <input type="text" id="initialURL" name="initialURL" value="http://" placeholder="" required/>
+    </div>
+  </div>
+
+  <div class="crm-section">
+    <div class="link-build-section">
+      <label>
+        <h4>CRM System</h4>
+      </label>
+      <p>
+        Lorem ipsum dolor sit amet, qui ad natum docendi consequat, sit denique fabellas in.
+      </p>
+      <select id="marketingPlatform" name="marketingPlatform">
+        <option value="blank">-- Select --</option>
+        <option value="luminate">Luminate</option>
+        <!--<option value="salsa">Salsa</option>-->
+        <option value="enetworks">Engaging Networks</option>
+      </select>
+      <div id="luminate" class="hide">
+        <div class="luminate-source">
+          <label>
+            &#8627; Source
+            <span class="required-ast">*</span>
+          </label>
+          <input type="text" id="lum-source" placeholder="Source" required/>
+        </div>
+        <div class="luminate-subsource">
+          <label>
+            Sub-Source
+          </label>
+          <input type="text" id="lum-subsource" placeholder="(Optional)" required/>
+        </div>
+      </div>
+
+      <div id="salsa" class="hide">
+        <label>
+          &#8627; Tag
+          <span class="required-ast">*</span>
+        </label>
+        <input type="text" id="salsa-tag" placeholder="Enter tag name" required/>
+      </div>
+
+      <div id="engaging-networks" class="hide">
+        <label>
+          &#8627; Tracking Parameter
+          <span class="required-ast">*</span>
+        </label>
+        <input type="text" id="en-param" placeholder="Enter parameter" required/>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div class="ga-section">
+    <h4>Google Analytics</h4>
+    <p>
+      Lorem ipsum dolor sit amet, qui ad natum docendi consequat, sit denique fabellas in.
+    </p>
+    <div class="link-build-section">
+      <label>
+        Source
+      </label>
+      <p>Select where the link will be placed, if more then one please create additional tracking codes</p>
+      <select id="marketingSource" name="marketingSource">
+        <option value="blank">-- Select --</option>
+        <option value="Facebook">Facebook</option>
+        <option value="LinkedIn">LinkedIn</option>
+        <option value="Twitter">Twitter</option>
+        <option value="GooglePlus">Google Plus</option>
+        <option value="Pinterest">Pinterest</option>
+        <option value="Google">Google Search</option>
+        <option value="Yahoo">Yahoo</option>
+        <option value="Bing">Bing</option>
+        <option value="EMail">E-Mail</option>
+        <option value="Native">Native</option>
+        <option value="DigitalAd">Digital Ad</option>
+        <option value="PartnerSite">Partner Site</option>
+        <option value="PressRelease">Press Release</option>
+        <option value="Blog">Blog</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="link-build-section">
+      <label>
+        Medium
+      </label>
+      <p>Select the type of marketing</p>
+      <select id="marketingMedium" name="marketingMedium">
+        <option value="blank">-- Select --</option>
+        <option value="Free">Free</option>
+        <option value="Paid">Paid</option>
+      </select>
+    </div>
+
+    <div class="link-build-section">
+      <label for="campaignName">
+        Name
+      </label>
+      <p>Enter the name of your campaign, email, post, etc.  Should easily identify where the link was placed. <br/><strong>(no spaces and capitalize each word)</strong></p>
+      <input type="text" id="campaignName" name="campaignName" value="" placeholder="MyCoolEmailOrPost" required/>
+    </div>
+
+    <div class="link-build-section date-fields">
+      <label>
+        Date
+      </label>
+      <p>The date the tracking code will be first used</p>
+      <div class="date-item-hold">
+        <label for="month">Month</label>
+        <input id="month" name="month" type="tel" maxlength="2" value="" required/>
+      </div>
+
+      <div class="date-item-hold">
+        <label for="day">Day</label>
+        <input id="day" name="day" type="tel" maxlength="2" value="" required/>
+      </div>
+
+      <div class="date-item-hold">
+        <label for="year">Year</label>
+        <input id="year" name="year" type="tel" maxlength="4" value="" required/>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div><!-- End GA Section -->
+
+  <div class="box">
+    <button id="create" class="form-submit-button">
+      Create Link
+    </button>
+  </div>
+
+  <div id="generatedLinkBlock" class="hide">
+    <label>Your custom URL:</label>
+    <div id="generated-link-hold">
+      <input id="generatedLink" readonly>
+      <button id="copy-button">Copy</button>
+    </div>
+    <div id="copy-message"></div>
+    <div class="clear"></div>
+  </div>
+
+</div><!-- End Link Form -->
+
+<script src="js/link-builder.js"></script>
+</body>
+</html>
